@@ -13,18 +13,17 @@ defineProps(['type'])
             <textarea class="textarea"></textarea>
         </div>
     </div>
-
 </template>
 
 <style scoped>
 .panel {
-    background-color: #FFFFFF;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 12px;
     border: 1px solid rgba(0, 0, 0, 0.08);
     border-radius: 12px;
+    background-color: #ffffff;
     padding: 20px;
-    display: grid;
-    gap: 12px;
-    grid-template-rows: auto 1fr;
 }
 
 .panel-header {
@@ -40,30 +39,30 @@ defineProps(['type'])
 
 .export-button {
     grid-column: 3;
-    background-color: #0E7C7B;
-    color: #FFFFFF;
     border: 1px solid rgba(0, 0, 0, 0.08);
-    padding: 8px 12px;
     border-radius: 999px;
+    background-color: #0e7c7b;
+    padding: 8px 12px;
+    color: #ffffff;
 }
 
 .clean-button {
     grid-column: 4;
-    background-color: #F2EDE6;
     border: 1px solid rgba(0, 0, 0, 0.08);
-    padding: 8px 12px;
     border-radius: 999px;
+    background-color: #f2ede6;
+    padding: 8px 12px;
 }
 
 .textarea {
-    background-color: #F9F7F3;
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    padding: 16px;
-    border-radius: 12px;
-    outline: none;
     box-sizing: border-box;
-    resize: none;
-    height: 100%;
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    background-color: #f9f7f3;
+    padding: 16px;
     width: 100%;
+    height: 100%;
+    resize: none;
 }
 </style>

@@ -1,5 +1,4 @@
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <template>
     <header class="app-header">
@@ -14,9 +13,9 @@
 
 <style scoped>
 .app-header {
-    padding: 12px 16px;
-    background-color: #FFFFFF;
     border-radius: 12px;
+    background-color: #ffffff;
+    padding: 12px 16px;
 }
 
 .title-stack {

@@ -1,12 +1,13 @@
 <script setup lang="ts">
-import AppHeader from "./Components/AppHeader.vue"
-import TextPanel from "./Components/TextPanel.vue"
+import AppHeader from './Components/AppHeader.vue'
+import TextPanel from './Components/TextPanel.vue'
 
-import { ref } from "vue";
+import { ref } from 'vue'
 
-const textTypes = ref([{ id: 1, type: "Markdown" }, { id: 2, type: "HTML" }])
-
-
+const textTypes = ref([
+    { id: 1, type: 'Markdown' },
+    { id: 2, type: 'HTML' },
+])
 </script>
 
 <template>
@@ -16,7 +17,6 @@ const textTypes = ref([{ id: 1, type: "Markdown" }, { id: 2, type: "HTML" }])
     <div class="container-panels">
         <TextPanel v-for="textType in textTypes" :key="textType.id" :type="textType.type" />
     </div>
-
 </template>
 
 <style scoped>
@@ -30,18 +30,18 @@ const textTypes = ref([{ id: 1, type: "Markdown" }, { id: 2, type: "HTML" }])
 <style>
 html,
 body {
-    height: 100%;
     margin: 0;
-    padding: 0;
     background-color: #f4f0ea;
+    padding: 0;
+    height: 100%;
 }
 
 #app {
     display: grid;
     grid-template-rows: 94px auto;
     gap: 24px;
-    height: 100vh;
-    padding: 32px;
     box-sizing: border-box;
+    padding: 32px;
+    height: 100vh;
 }
 </style>
