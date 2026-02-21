@@ -15,11 +15,17 @@
         "format": "prettier --write --experimental-cli src/"
     },
     "dependencies": {
+        "@mdit/plugin-tasklist": "^0.22.3",
+        "@truto/turndown-plugin-gfm": "^1.0.2",
+        "markdown-it": "^14.1.1",
+        "turndown": "^7.2.2",
         "vue": "^3.5.27"
     },
     "devDependencies": {
         "@tsconfig/node24": "^24.0.4",
+        "@types/markdown-it": "^14.1.2",
         "@types/node": "^24.10.9",
+        "@types/turndown": "^5.0.6",
         "@vitejs/plugin-vue": "^6.0.3",
         "@vue/eslint-config-typescript": "^14.6.0",
         "@vue/tsconfig": "^0.8.1",

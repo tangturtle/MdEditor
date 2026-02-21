@@ -1,18 +1,21 @@
 <script setup lang="ts">
-import { store } from './store/texts.ts'
+import { store } from '@/store/texts.ts'
+import { markdownToHTML, htmlToMarkdown } from '@/utils/converter.ts'
 
 const types = defineProps<{
     type: string
 }>()
 
 const updateText = () => {
+    console.log(store.HTML);
+    console.log(store.Markdown);
     // 如果当前是 Markdown，转换为 HTML
     if (types.type === 'Markdown') {
-        store.HTML = store[types.type as keyof typeof store]
+        store.HTML = markdownToHTML(store[types.type as keyof typeof store]);
     }
     // 如果当前是 HTML，转换为 Markdown
     else {
-        store.Markdown = store[types.type as keyof typeof store]
+        store.Markdown = htmlToMarkdown(store[types.type as keyof typeof store]);
     }
 }
 
@@ -30,11 +33,7 @@ const cleanText = () => {
             <button class="clean-button" @click="cleanText">清空</button>
         </div>
         <div class="panel-body">
-            <textarea
-                class="textarea"
-                v-model="store[types.type as keyof typeof store]"
-                @input="updateText"
-            ></textarea>
+            <textarea class="textarea" v-model="store[types.type as keyof typeof store]" @input="updateText"></textarea>
         </div>
     </div>
 </template>

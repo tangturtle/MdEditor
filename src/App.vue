@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import AppHeader from './Components/AppHeader.vue'
-import TextPanel from './Components/TextPanel.vue'
+import AppHeader from '@/components/AppHeader.vue'
+import TextPanel from '@/components/TextPanel.vue'
 
 import { ref } from 'vue'
 
