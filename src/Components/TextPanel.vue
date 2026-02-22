@@ -7,13 +7,9 @@ const types = defineProps<{
 }>()
 
 const updateText = () => {
-    console.log(store.HTML);
-    console.log(store.Markdown);
-    // 如果当前是 Markdown，转换为 HTML
     if (types.type === 'Markdown') {
         store.HTML = markdownToHTML(store[types.type as keyof typeof store]);
     }
-    // 如果当前是 HTML，转换为 Markdown
     else {
         store.Markdown = htmlToMarkdown(store[types.type as keyof typeof store]);
     }
