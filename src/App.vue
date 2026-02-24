@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import AppHeader from '@/components/AppHeader.vue'
-import TextPanel from '@/components/TextPanel.vue'
+import AppHeader from '@/components/AppHeader.vue';
+import TextPanel from '@/components/TextPanel.vue';
 
-import { ref } from 'vue'
+import { ref } from 'vue';
 
 const textTypes = ref([
     { id: 1, type: 'Markdown' },
     { id: 2, type: 'HTML' },
-])
+]);
 </script>
 
 <template>

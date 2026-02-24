@@ -1,35 +1,57 @@
 <script setup lang="ts">
-import { store } from '@/store/texts.ts'
-import { markdownToHTML, htmlToMarkdown } from '@/utils/converter.ts'
+import { store } from '@/store/texts.ts';
+import { markdownToHTML, htmlToMarkdown } from '@/utils/converter.ts';
 
 const types = defineProps<{
-    type: string
-}>()
+    type: string;
+}>();
 
 const updateText = () => {
     if (types.type === 'Markdown') {
         store.HTML = markdownToHTML(store[types.type as keyof typeof store]);
-    }
-    else {
+    } else {
         store.Markdown = htmlToMarkdown(store[types.type as keyof typeof store]);
     }
-}
+};
 
 const cleanText = () => {
-    store[types.type as keyof typeof store] = ''
-    updateText()
-}
+    store[types.type as keyof typeof store] = '';
+    updateText();
+};
+
+const exportText = () => {
+    const text = store[types.type as keyof typeof store];
+    if (!text) {
+        alert('没有内容可导出');
+        return;
+    }
+    const fileType = types.type === 'Markdown' ? 'md' : 'html';
+    const fileName = `export_${Date.now()}.${fileType}`;
+    const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = fileName;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+};
 </script>
 
 <template>
     <div class="panel">
         <div class="panel-header">
             <h3 class="type-header">{{ types.type }}</h3>
-            <button class="export-button">导出{{ types.type }}</button>
+            <button class="export-button" @click="exportText">导出{{ types.type }}</button>
             <button class="clean-button" @click="cleanText">清空</button>
         </div>
         <div class="panel-body">
-            <textarea class="textarea" v-model="store[types.type as keyof typeof store]" @input="updateText"></textarea>
+            <textarea
+                class="textarea"
+                v-model="store[types.type as keyof typeof store]"
+                @input="updateText"
+            ></textarea>
         </div>
     </div>
 </template>
