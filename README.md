@@ -1,6 +1,8 @@
 # MdEditor
 
-类似 Typora 的网页 Markdown 编辑器（Vue 3 + TypeScript）。
+一个网页 Markdown 编辑器（Vue 3 + TypeScript）。
+目前的大致目标是
+![alt text](doc/image.png)
 
 **项目阶段**：
 
