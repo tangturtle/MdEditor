@@ -11,8 +11,10 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    AppHeader: typeof import('./src/components/AppHeader.vue')['default']
+    EditorLayout: typeof import('./src/components/layout/EditorLayout.vue')['default']
+    EditorToolbar: typeof import('./src/components/toolbar/EditorToolbar.vue')['default']
     IMdiHome: typeof import('~icons/mdi/home')['default']
-    TextPanel: typeof import('./src/components/TextPanel.vue')['default']
+    MarkdownEditor: typeof import('./src/components/editor/MarkdownEditor.vue')['default']
+    MarkdownPreview: typeof import('./src/components/preview/MarkdownPreview.vue')['default']
   }
 }

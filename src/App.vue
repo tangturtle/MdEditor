@@ -1,11 +1,23 @@
 <script setup lang="ts">
+import EditorLayout from './components/layout/EditorLayout.vue';
+
 </script>
 
 <template>
-    <p>hi</p>
+    <div class="main-header">
+        <h1>Mdeditor</h1>
+    </div>
+    <div class="editor-layout">
+        <EditorLayout />
+    </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.main-header {
+    text-align: center;
+    font-size: 30px;
+}
+</style>
 
 <style>
 html,
@@ -17,6 +29,7 @@ body {
 
 #app {
     display: grid;
+    grid-template-rows: 1fr 9fr;
     box-sizing: border-box;
     height: 100vh;
 }
